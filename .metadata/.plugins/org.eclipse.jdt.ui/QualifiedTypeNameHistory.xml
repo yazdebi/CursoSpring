@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.bolsadeideas.springboot.app.models.entity.Cliente"/>
+    <fullyQualifiedTypeName name="javax.persistence.PrePersist"/>
+</qualifiedTypeNameHistroy>
