@@ -19,31 +19,25 @@
       <li class="nav-item">
         <a class="nav-link" th:href="@{listar}">Clientes</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+
     </ul>
   </div>
 </nav>
 <div class="container">
 <h1 class="text-secundary border border-success border-top-0 border-left-0 border-right-0" th:text="${titulo}"></h1>
 <a th:href="@{/form}">crear cliente</a>
-
-	<table class="table-striped">
-		<thead>
+	<table class="table">
+		<thead class="thead-dark">
 			<tr>
-				<th>id</th>
-				<th>nombre</th>
-				<th>apellido</th>
-				<th>email</th>
-				<th>fecha</th>
+				<th scope="col">ID</th>
+				<th scope="col">NOMBRE</th>
+				<th scope="col">APELLIDO</th>
+				<th scope="col">EMAIL</th>
+				<th scope="col">FECHA</th>
 			</tr>	
 		</thead>
-		<tbody>
-		<tr th:each="cliente: ${clientes}">
+		<tbody >
+		<tr th:each="cliente: ${clientes}"  scope="row">
 			<td th:text="${cliente.id}"><td>
 			<td th:text="${cliente.nombre}"><td>
 			<td th:text="${cliente.apellido}"><td>
