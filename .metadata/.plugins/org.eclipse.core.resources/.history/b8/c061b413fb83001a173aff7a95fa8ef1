@@ -20,7 +20,7 @@
         <a class="nav-link" th:href="@{listar}">Clientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{form}">Crear</a>
+        <a class="nav-link" th:href="@{form}">Clientes</a>
       </li>
 
     </ul>
