@@ -22,6 +22,7 @@ import com.bolsadeideas.springboot.app.models.service.IClienteService;
 public class ClienteController {
 
 	@Autowired
+	@Qualifier("clienteDaoJPA")
 	private IClienteService clienteService;
 	
 	@RequestMapping(value="listar", method=RequestMethod.GET)
