@@ -63,10 +63,9 @@ public class ClienteController {
 			model.addAttribute("titulo","Formulario de Cliente");
 			return "form";
 		}
-		String mensajeFlash = (cliente.getId() != null) ? "Cliente Editado con éxito":"Cliente creado con éxito";
 		clienteService.save(cliente);
 		status.setComplete();
-		flash.addFlashAttribute("success", mensajeFlash);
+		flash.addFlashAttribute("success", "Cliente creado con exito");
 		return "redirect:listar";
 	}
 	

@@ -39,16 +39,11 @@ public class ClienteController {
 		return "form";
 	}
 	@RequestMapping(value="/form/{id}")
-	public String editar(@PathVariable(value="id") Long id, Map<String,Object> model, RedirectAttributes flash) {
+	public String editar(@PathVariable(value="id") Long id, Map<String,Object> model) {
 		Cliente cliente = null;
 		if (id>0) {
 			cliente = clienteService.findOne(id);
-			if(cliente == null) {
-				flash.addFlashAttribute("error", "El ID del cliente no existe en la BBDD");
-				return "redirect:/listar";
-			}
 		}else {
-			flash.addFlashAttribute("error", "El ID del cliente no puede ser cero");
 			return "redirect:/listar";
 		}
 		
@@ -63,10 +58,9 @@ public class ClienteController {
 			model.addAttribute("titulo","Formulario de Cliente");
 			return "form";
 		}
-		String mensajeFlash = (cliente.getId() != null) ? "Cliente Editado con éxito":"Cliente creado con éxito";
 		clienteService.save(cliente);
 		status.setComplete();
-		flash.addFlashAttribute("success", mensajeFlash);
+		flash.addFlashAttribute("success", "Cliente creado con exito");
 		return "redirect:listar";
 	}
 	
@@ -74,7 +68,7 @@ public class ClienteController {
 	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
 		if (id > 0) {
 			clienteService.delete(id);
-			flash.addFlashAttribute("success", "Cliente eliminado con éxito");
+			flash.addFlashAttribute("success", "Cliente eliminado con éxito")
 		}
 		return "redirect:/listar";
 	}
