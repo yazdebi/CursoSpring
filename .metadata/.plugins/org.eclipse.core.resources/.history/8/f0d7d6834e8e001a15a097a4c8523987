@@ -45,20 +45,20 @@ public class ClienteController {
 
 	@Autowired
 	private IClienteService clienteService;
-
+	
 	@Autowired
 	private IUploadFileService uploadFileService;
 
 	@GetMapping(value = "/uploads/{filename:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String filename) {
-
+		
 		Resource recurso = null;
 		try {
 			recurso = uploadFileService.load(filename);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-
+		
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"")
 				.body(recurso);
@@ -131,8 +131,8 @@ public class ClienteController {
 					&& cliente.getFoto().length() > 0) {
 				uploadFileService.delete(cliente.getFoto());
 			}
-
-			String uniqueFilename = null;
+			
+			String uniqueFilename=null;
 			try {
 				uniqueFilename = uploadFileService.copy(foto);
 			} catch (IOException e) {
@@ -158,10 +158,14 @@ public class ClienteController {
 			clienteService.delete(id);
 			flash.addFlashAttribute("success", "Cliente eliminado con éxito");
 
-			if (uploadFileService.delete(cliente.getFoto())) {
-				flash.addFlashAttribute("info", "Foto " + cliente.getFoto() + " Eliminada con exito");
-			}
+			Path rootPath = Paths.get(UPLOADS_FOLDER).resolve(cliente.getFoto()).toAbsolutePath();
+			File archivo = rootPath.toFile();
+			if (archivo.exists() && archivo.canRead()) {
+				if (archivo.delete()) {
+					flash.addFlashAttribute("info", "Foto " + cliente.getFoto() + " Eliminada con exito");
+				}
 
+			}
 		}
 		return "redirect:/listar";
 	}
