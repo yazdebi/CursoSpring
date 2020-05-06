@@ -33,3 +33,12 @@ INSERT INTO clientes( nombre, apellido, email, create_at, foto) VALUES( 'e','m',
 INSERT INTO clientes( nombre, apellido, email, create_at, foto) VALUES( 's','b','prueba@prueba.com','2017-08-28','');
 INSERT INTO clientes( nombre, apellido, email, create_at, foto) VALUES( 'w','f','prueba1@prueba.com','2019-08-28','');
 INSERT INTO clientes( nombre, apellido, email, create_at, foto) VALUES( 'q','y','prueba@prueba.com','2017-08-28','');
+
+/*Tabla productos*/
+INSERT INTO productos(nombre,precio,create_at) VALUES('Panasonic Pantalla LCD 50','259990',NOW());
+INSERT INTO productos(nombre,precio,create_at) VALUES('Sony Pantalla LCD 50','359990',NOW());
+INSERT INTO productos(nombre,precio,create_at) VALUES('Samsung Pantalla LCD 50','340000',NOW());
+INSERT INTO productos(nombre,precio,create_at) VALUES('Motorola','60000',NOW());
+INSERT INTO productos(nombre,precio,create_at) VALUES('Xiomar','259990',NOW());
+INSERT INTO productos(nombre,precio,create_at) VALUES('LG','8000',NOW());
+INSERT INTO productos(nombre,precio,create_at) VALUES('IPHONE','300000',NOW());
