@@ -42,3 +42,15 @@ INSERT INTO productos(nombre,precio,create_at) VALUES('Motorola','60000',NOW());
 INSERT INTO productos(nombre,precio,create_at) VALUES('Xiomar','259990',NOW());
 INSERT INTO productos(nombre,precio,create_at) VALUES('LG','8000',NOW());
 INSERT INTO productos(nombre,precio,create_at) VALUES('IPHONE','300000',NOW());
+INSERT INTO productos(nombre,precio,create_at) VALUES('Bicicleta rosa 29','5600',NOW());
+
+/*Carga de factutras*/
+
+INSERT INTO facturas(descripcion, observacion,cliente_id,create_at)VALUES('Factua equipo de oficina', null,1,NOW());
+INSERT INTO facturas_items(cantidad,factura_id,producto_id)VALUES(1,1,1);
+INSERT INTO facturas_items(cantidad,factura_id,producto_id)VALUES(2,1,4);
+INSERT INTO facturas_items(cantidad,factura_id,producto_id)VALUES(1,1,5);
+INSERT INTO facturas_items(cantidad,factura_id,producto_id)VALUES(1,1,7);
+
+INSERT INTO facturas(descripcion, observacion,cliente_id,create_at)VALUES('Factua Bicicleta', 'Oferta de periodo fin de año',1,NOW());
+INSERT INTO facturas_items(cantidad,factura_id,producto_id)VALUES(1,2,8);
