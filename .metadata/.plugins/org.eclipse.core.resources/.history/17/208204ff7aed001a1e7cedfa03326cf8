@@ -52,7 +52,7 @@
 				},
 				hasProducto: function(id){
 					var resultado = false;
-					$('input[name="item_id[]"]').each(function(){
+					$('input[name="item_id[]""]').each(function(){
 					if(parseInt(id) == parseInt($(this).val()))	
 						{
 						resultado = true;
