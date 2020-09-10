@@ -25,9 +25,12 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" th:text="'Descripci�n'"></label>
+						<label class="col-sm-2 col-form-label" th:text="'Descripcion'"></label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{descripcion}" class="form-control" />
+							<input type="text" th:field="*{descripcion}" class="form-control" th:errorclass="'form-control is-invalid'" />
+							<div class="invalid-feedback" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+							
+							
 						</div>
 
 					</div>
@@ -44,7 +47,8 @@
 							th:text="'Buscar Producto'"></label>
 						<div class="col-sm-6">
 							<input type="text" name="buscar_producto" id="buscar_producto"
-								class="form-control" />
+								class="form-control"  />
+
 						</div>
 					</div>
 
