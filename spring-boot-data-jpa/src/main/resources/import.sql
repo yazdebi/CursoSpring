@@ -54,3 +54,9 @@ INSERT INTO facturas_items(cantidad,factura_id,producto_id)VALUES(1,1,7);
 
 INSERT INTO facturas(descripcion, observacion,cliente_id,create_at)VALUES('Factua Bicicleta', 'Oferta de periodo fin de año',1,NOW());
 INSERT INTO facturas_items(cantidad,factura_id,producto_id)VALUES(1,2,8);
+
+insert into users(username,password,enabled) values('yazmin','$2a$10$zC4VCa.AOQvI5gb6jmApHuE83n3J5GVkfTXGo14z5F2AKMS8yozOC',1);
+insert into users(username,password,enabled) values('admin','$2a$10$g78AWlx5PdWH.KHvsiT1e.uFOBGWb52bmqxBGXjwOXhfTSuAD7DcG',1);
+insert into authorities(user_id,authority)values(1,'ROLE_USER');
+insert into authorities(user_id,authority)values(2,'ROLE_USER');
+insert into authorities(user_id,authority)values(2,'ROLE_ADMIN');
