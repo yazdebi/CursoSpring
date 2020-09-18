@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
@@ -62,6 +64,10 @@ public class ClienteController {
 
 	@Autowired
 	private IUploadFileService uploadFileService;
+	
+	@Autowired
+	private MessageSource messageSource;
+	
 
 	@Secured({"ROLE_USER","ROLE_ADMIN"})
 	@GetMapping(value = "/uploads/{filename:.+}")
@@ -96,7 +102,8 @@ public class ClienteController {
 	
 	@RequestMapping(value = {"/listar", "/"}, method = RequestMethod.GET)
 	public String listar(@RequestParam(name = "page", defaultValue = "0") int page, Model model
-			,Authentication authentication, HttpServletRequest request) {
+			,Authentication authentication, HttpServletRequest request
+			,Locale locale) {
 		
 		if (authentication != null) {
 			logger.info("Hola usuario autenticado tu username es:".concat(authentication.getName()) );
@@ -104,7 +111,7 @@ public class ClienteController {
 		}
 		
 		//Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		
+		/*
 		if (authentication != null) {
 			logger.info("Usando de forma estatica el SecurityContextHolder.getContext().getAuthentication(): El usuario autenticado es".concat(authentication.getName()) );
 		}
@@ -130,13 +137,14 @@ public class ClienteController {
 		}else {
 			logger.info("Usando request Hola".concat(authentication.getName()).concat(" No tienes acceso!"));
 		}
-		 
+		 */
 		Pageable pageRequest = PageRequest.of(page, 5);
 
 		Page<Cliente> clientes = clienteService.findAll(pageRequest);
 
 		PageRender<Cliente> pageRender = new PageRender<>("/listar", clientes);
-		model.addAttribute("titulo", "listado de clientes");
+		//model.addAttribute("titulo", "listado de clientes");
+		model.addAttribute("titulo", messageSource.getMessage("text.cliente.listar.titulo", null, locale));
 		model.addAttribute("clientes", clientes);
 		model.addAttribute("page", pageRender);
 		return "listar";

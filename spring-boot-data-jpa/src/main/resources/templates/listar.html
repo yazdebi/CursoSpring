@@ -21,13 +21,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 					<thead class="thead-inverse">
 						<tr>
 							<th sec:authorize ="hasRole('ROLE_USER')">ID</th>
-							<th>NOMBRE</th>
-							<th>APELLIDO</th>
-							<th>EMAIL</th>
-							<th>FECHA</th>
-							<th sec:authorize ="hasRole('ROLE_USER')">CREAR FACTURA </th>
-							<th sec:authorize ="hasRole('ROLE_USER')">EDITAR</th>
-							<th sec:authorize ="hasRole('ROLE_USER')">ELIMINAR</th>
+							<th th:text="#{text.cliente.nombre}">NOMBRE</th>
+							<th th:text="#{text.cliente.apellido}">APELLIDO</th>
+							<th th:text="#{text.cliente.email}">EMAIL</th>
+							<th th:text="#{text.cliente.createAt}">FECHA</th>
+							<th >CREAR FACTURA </th>
+							<th >EDITAR</th>
+							<th>ELIMINAR</th>
 						</tr>
 					</thead>
 					<tbody>

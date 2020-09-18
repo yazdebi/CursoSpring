@@ -24,8 +24,10 @@ public class Usuario implements Serializable {
 
 	@Column(unique = true, length = 30)
 	private String username;
+	
 	@Column(length = 60)
 	private String password;
+	
 	private Boolean enabled;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

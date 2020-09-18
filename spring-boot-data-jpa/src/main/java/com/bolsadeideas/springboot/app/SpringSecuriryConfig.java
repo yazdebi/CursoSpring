@@ -23,8 +23,8 @@ public class SpringSecuriryConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	private LoginSuccesHandler successHandler;
-	@Autowired 
-	DataSource dataSource;
+	//@Autowired 
+	//DataSource dataSource;
 	@Autowired
 	JpaUserDetailsService userDetailsService;
 	
@@ -33,7 +33,7 @@ public class SpringSecuriryConfig extends WebSecurityConfigurerAdapter{
 	private BCryptPasswordEncoder passwordEncoder;
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-			http.authorizeRequests().antMatchers("/","/css/**","/js/**","/images/**","/listar").permitAll()
+			http.authorizeRequests().antMatchers("/","/css/**","/js/**","/images/**","/listar","/locale").permitAll()
 			//.antMatchers("/ver/**").hasAnyRole("USER")
 			//.antMatchers("/uploads/**").hasAnyRole("USER")
 			//.antMatchers("/form/**").hasAnyRole("ADMIN")
