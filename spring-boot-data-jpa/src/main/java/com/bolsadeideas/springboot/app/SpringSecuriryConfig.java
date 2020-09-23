@@ -56,8 +56,7 @@ public class SpringSecuriryConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	public void ConfigurerGlobal(AuthenticationManagerBuilder build)  throws Exception{
 		
-		build.userDetailsService(userDetailsService)
-		.passwordEncoder(passwordEncoder);
+		build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 		
 		
 		/* por jdbc

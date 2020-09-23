@@ -49,6 +49,7 @@ public class FacturaController {
 		}
 		model.addAttribute("factura", factura);
 		model.addAttribute("titulo", "factura :".concat(factura.getDescripcion()));
+	//	model.addAttribute("titulo", "factura :".concat(factura.getDescripcion()));
 		
 		return "factura/ver";
 	}
